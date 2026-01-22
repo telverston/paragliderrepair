@@ -1,4 +1,4 @@
-# robots.txt for www.paragliderrepair.com
+# robots.txt for paragliderrepair.com
 # Paraglider Repair Service by WindFire Designs
 
 # Allow all search engines to crawl the entire site
@@ -6,7 +6,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://www.paragliderrepair.com/sitemap.xml
+Sitemap: https://paragliderrepair.com/sitemap.xml
 
 # Crawl-delay (optional, uncomment if needed)
 # Crawl-delay: 10
