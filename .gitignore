@@ -1,0 +1,62 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Thumbnails
+Thumbs.db
+
+# Windows
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-workspace
+.sublime-project
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Backup files
+*.bak
+*.backup
+*.tmp
+*~
+
+# Development/test files
+test/
+.env
+.env.local
+
+# Build artifacts (if any build process added later)
+dist/
+build/
+*.min.js.map
+*.min.css.map
+
+# Node modules (if any npm packages added)
+node_modules/
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Large media work files (keep optimized versions only)
+*.psd
+*.ai
+*.sketch
+*.xcf
+
+# Documentation that shouldn't be in production
+TODO.md
+NOTES.md
