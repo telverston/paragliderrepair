@@ -768,7 +768,11 @@ a:focus {
     }
 
     .site-header {
-        padding: var(--spacing-md) var(--spacing-sm);
+        background-size: 80px;
+        background-position: center 10px;
+        padding-top: 100px;
+        padding-left: var(--spacing-sm);
+        min-height: auto;
     }
 
     .site-header h1 {
@@ -803,6 +807,13 @@ a:focus {
 }
 
 @media screen and (max-width: 480px) {
+    .site-header {
+        background-size: 60px;
+        background-position: center 10px;
+        padding-top: 80px;
+        padding-left: var(--spacing-sm);
+    }
+
     .site-header h1 {
         font-size: 1.75rem;
     }
