@@ -318,55 +318,78 @@ body {
     background-color: rgba(0, 0, 0, 0.3);
     margin-top: 60px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0;
 }
 
 .horizontal-context-container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 8px var(--spacing-sm);
+    padding: 0 var(--spacing-sm);
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
+    gap: 8px;
+    min-height: 42px;
 }
 
 .context-section-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: var(--secondary-color);
-    font-size: 0.85rem;
+    font-weight: 600;
+    padding-right: 12px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
     white-space: nowrap;
-    font-weight: bold;
 }
 
 .horizontal-context-menu {
-    list-style: none;
     display: flex;
-    gap: var(--spacing-xs);
     flex-wrap: wrap;
+    gap: 2px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    align-items: center;
 }
 
 .horizontal-context-menu li {
-    display: inline-block;
+    margin: 0;
 }
 
 .horizontal-context-menu a {
+    display: block;
+    padding: 8px 16px;
     color: var(--primary-color);
     text-decoration: none;
-    padding: 5px 15px;
-    display: block;
-    border-radius: var(--border-radius);
-    transition: background-color 0.3s ease;
     font-size: 0.9rem;
+    font-weight: 400;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.15s ease;
+    white-space: nowrap;
 }
 
-.horizontal-context-menu a:hover,
+.horizontal-context-menu li:last-child a {
+    border-right: none;
+}
+
+.horizontal-context-menu a:hover {
+    background: var(--primary-color);
+    color: var(--background-color);
+    border-radius: 4px;
+}
+
 .horizontal-context-menu a:focus {
-    background-color: var(--hover-background);
-    color: var(--accent-color);
+    outline: 2px solid var(--primary-color);
+    outline-offset: -2px;
 }
 
 .horizontal-context-menu a.current {
-    background-color: var(--hover-background);
-    font-weight: bold;
-    color: var(--accent-color);
+    background: var(--primary-color);
+    color: var(--background-color);
+    font-weight: 600;
+    border-radius: 4px;
 }
 
 /* ===========================
@@ -796,13 +819,78 @@ a:focus {
         text-align: center;
     }
 
-    .horizontal-context-container {
-        flex-direction: column;
-        align-items: flex-start;
+    /* Responsive: Compact on tablet */
+    .context-section-label {
+        font-size: 0.7rem;
+        padding-right: 8px;
     }
 
     .horizontal-context-menu {
-        width: 100%;
+        gap: 1px;
+    }
+
+    .horizontal-context-menu a {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Responsive: Horizontal scroll on mobile (space-efficient) */
+@media (max-width: 640px) {
+    .horizontal-context-container {
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 8px;
+        padding: 8px var(--spacing-sm);
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        scrollbar-width: thin;
+    }
+
+    .context-section-label {
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        padding-right: 8px;
+        padding-bottom: 0;
+        flex-shrink: 0; /* Don't shrink the label */
+        font-size: 0.7rem;
+    }
+
+    .horizontal-context-menu {
+        flex-direction: row;
+        width: auto;
+        padding: 0;
+        gap: 2px;
+        flex-wrap: nowrap; /* Don't wrap - scroll instead */
+    }
+
+    .horizontal-context-menu li {
+        flex-shrink: 0; /* Prevent items from shrinking */
+    }
+
+    .horizontal-context-menu a {
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: none;
+        padding: 6px 12px;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+
+    /* Subtle scroll indicator hint */
+    .horizontal-context-container::after {
+        content: "→";
+        position: sticky;
+        right: 0;
+        background: linear-gradient(
+            to left,
+            rgba(26, 26, 26, 1) 50%,
+            transparent
+        );
+        padding-left: 20px;
+        color: var(--secondary-color);
+        font-size: 1.3rem;
+        font-weight: bold;
+        pointer-events: none;
     }
 }
 
