@@ -60,3 +60,4 @@ node_modules/
 # Documentation that shouldn't be in production
 TODO.md
 NOTES.md
+.DS_Store
